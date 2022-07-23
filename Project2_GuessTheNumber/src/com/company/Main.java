@@ -35,8 +35,13 @@ public class Main {
 
         while(guessCount <= 5) {
             System.out.println("take a guess.");
-            int guess = input.nextInt();
 
+            try {
+            int guess = input.nextInt();
+            if (guess > 20) {
+                System.out.println("Input out of range, Enter a number between 1 and 20\n");
+                continue;
+            }
             if (guess > random) {
                 System.out.println("Your guess is to high.");
                 guessCount++;
@@ -49,6 +54,11 @@ public class Main {
             guessCount++;
             System.out.println("Good job, " + name + "! You guessed my number in " + guessCount + "\n");
             break;
+
+            }catch (Exception ex){
+                System.out.println("Wrong Input! Only number is accepted!");
+                break;
+            }
         }
     }
 }
